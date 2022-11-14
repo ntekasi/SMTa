@@ -181,6 +181,7 @@ SMTlevel<-function(object,new.taxa.level){
   DefaultAssay(object)="Phyloseq_level"
   nfeature=colSums(object@assays$Phyloseq_level@counts>0)
   object=AddMetaData(object,metadata=nfeature,col.name="nFeature_Microbe")
+  object@assays[["Phyloseq_level"]]@key<-c('spatial_')
   return(object)
 }
 
